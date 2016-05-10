@@ -1,0 +1,394 @@
+java.util.Random;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+		public class RPSLSstep {
+
+			public static void main(String args[]){
+				startGame(0);
+			}
+			
+				public static void startGame(int pastDecision) {
+			    Scanner in = new Scanner(System.in);    
+		    	System.out.println("");
+		        System.out.println("Please enter your selection and enter the digit"
+		        		+ "\nfor your selection:"
+		        		+ "\nRock(R),Paper(P), Scissor(S), Lizard(L) and Spock(SP) ");
+		        
+		        String userInput = in.nextLine();
+		        int user = 0;
+		        String userName = null;
+		        if(userInput.equals("R")){
+		        	user = 1;
+		        	userName = "Rock";
+		        }
+		        else if(userInput.equals("P")){
+		        	user = 2;
+		        	userName = "Paper";
+		        }
+		        else if(userInput.equals("S")){
+		        	user = 3;
+		        	userName = "Scissors";
+		        }
+		        else if(userInput.equals("L")){
+		        	user = 4;
+		        	userName = "Lizard";
+		        }
+		        else if(userInput.equals("SP")){
+		        	user = 5;
+		        	userName = "Spock";
+		        }
+		        
+		        
+			    
+		        
+			  
+			    
+			    
+			    if (pastDecision == 0){
+			    	int randomNum1 = 1 + (int)(Math.random() * ((3 - 1) + 1));
+			    	if (randomNum1 == 1){
+			    		stepOne(user, userName);	}	
+			    	else if(randomNum1 == 2){
+			    		stepTwo(user, userName);
+			    	}
+			    	else if(randomNum1 == 3){
+			    		stepThree(user, userName);
+			    	}
+			    	else if(randomNum1 == 4){
+			    		stepFour(user, userName);
+			    	}
+			    	else {
+			    		stepFive(user, userName);
+			    	}
+			    }
+			    
+			    
+			    else if(pastDecision == 1){
+			    stepOne(user, userName);
+			    }
+			    else if(pastDecision == 2){
+			    stepTwo(user, userName);
+			    }
+			    else if(pastDecision == 3){  
+			    stepThree(user, userName);
+			    }
+			    else if(pastDecision == 4){  
+				stepFour(user, userName);
+				}
+			    else if(pastDecision == 5){  
+				stepFive(user, userName);
+				}
+			   
+			    
+	     
+			     
+	}
+
+//Step One				
+			public static void stepOne(int user, String userName) {
+				int game = 1; //Game is set to rock
+				String gameName = "Rock"; 
+				
+				//If the user and game draw
+				if(user==game){
+		            System.out.println("You picked "+ userName+ " and the computer picked "+gameName);
+		            System.out.println("so you both draw");
+		            System.out.println("");		
+		            //Random number to pick between Rock and Scissors
+		            int randomNum2 = 1 + (int)(Math.random() * ((3 - 1) + 1));
+		            	//Call Rock 33% of the time
+			    		if (randomNum2 == 1){
+			    			int pastDecision = 1; //Calling  Rock
+			    			startGame(pastDecision);	}
+			    		//Call Lizard 33% of the time
+			    		else if(randomNum2 == 2){
+			    			int pastDecision = 1; //Calling Lizard
+			    			startGame(pastDecision);	}		    		
+			    		//Call Scissors 33% of the time
+			    		else {
+			    			int pastDecision = 3; //Calling  Scissors
+			    			startGame(pastDecision);
+			    		}		       
+		            }
+				
+					//If the user looses
+		            else if(user == 3 &&  game == 1 || user == 4 && game == 1){
+		            	 System.out.println("You picked "+ userName+ " and the computer picked "+gameName);
+				         System.out.println("so you loose");
+				         System.out.println("");				           
+				         int randomNum2 = 1 + (int)(Math.random() * ((2 - 1) + 1));
+				            //Call Paper 50% of the time
+					    	if (randomNum2 == 1){
+					    		int pastDecision = 2; //Calling  Paper
+					    		startGame(pastDecision);	}
+					    	//Call Spock 50% of the time
+					    	else {
+					    		int pastDecision = 5; //Calling Spock
+					    		startGame(pastDecision);
+					    	}
+					}
+					//If the user wins
+		            else {
+		            	System.out.println("You picked "+ userName+ " and the computer picked "+gameName);
+				         System.out.println("so you win");
+				         System.out.println("");				           
+				         int randomNum2 = 1 + (int)(Math.random() * ((2 - 1) + 1));
+				            //Call Scissors 50% of the time
+					    	if (randomNum2 == 1){
+					    		int pastDecision = 3; //Calling  Scissors
+					    		startGame(pastDecision);	}
+					    	//Call Lizard 50% of the time
+					    	else {
+					    		int pastDecision = 4; //Calling  Lizard
+					    		startGame(pastDecision);
+					    	}
+					}
+		            }
+		 				
+	
+//Step Two			
+			public static void stepTwo(int user, String userName) {
+				int game = 2; //Game is set to rock
+				String gameName = "Paper"; 
+				
+				//If the user and game draw
+				if(user==game){
+		            System.out.println("You picked "+ userName+ " and the computer picked "+gameName);
+		            System.out.println("so you both draw");
+		            System.out.println("");		
+		            //Random number to pick between Rock and Scissors
+		            int randomNum2 = 1 + (int)(Math.random() * ((3 - 1) + 1));
+		            	//Call Rock 33% of the time
+			    		if (randomNum2 == 1){
+			    			int pastDecision = 1; //Calling  Rock
+			    			startGame(pastDecision);	}
+			    		//Call Spock 33% of the time
+			    		else if(randomNum2 == 1){
+			    			int pastDecision = 5; //Calling  Spock
+			    			startGame(pastDecision)	;  	}
+			    		//Call Paper 33% of the time
+			    		else {
+			    			int pastDecision = 2; //Calling  Paper
+			    			startGame(pastDecision);
+			    		}		       
+		            }
+				
+					//If the user looses
+		            else if(user == 1 &&  game == 2 || user == 5 && game == 2){
+		            	 System.out.println("You picked "+ userName+ " and the computer picked "+gameName);
+				         System.out.println("so you loose");
+				         System.out.println("");				           
+				         int randomNum2 = 1 + (int)(Math.random() * ((2 - 1) + 1));
+				            //Call Scissors 50% of the time
+					    	if (randomNum2 == 1){
+					    		int pastDecision = 3; //Calling  Scissors
+					    		startGame(pastDecision);	}
+					    	//Call Lizard 50% of the time
+					    	else {
+					    		int pastDecision = 4; //Calling  Lizard
+					    		startGame(pastDecision);
+					    	}
+					}
+					//If the user wins
+		            else {
+		            	System.out.println("You picked "+ userName+ " and the computer picked "+gameName);
+				         System.out.println("so you win");
+				         System.out.println("");				           
+				         int randomNum2 = 1 + (int)(Math.random() * ((2 - 1) + 1));
+				            //Call Rock 50% of the time
+					    	if (randomNum2 == 1){
+					    		int pastDecision = 1; //Calling  Rock
+					    		startGame(pastDecision);	}
+					    	//Call Spock 50% of the time
+					    	else {
+					    		int pastDecision = 5; //Calling  Spock
+					    		startGame(pastDecision);
+					    	}
+					}
+		            }
+
+//Step Three
+			public static void stepThree(int user, String userName) {
+				int game = 3; //Game is set to rock
+				String gameName = "Scissors"; 
+				
+				//If the user and game draw
+				if(user==game){
+		            System.out.println("You picked "+ userName+ " and the computer picked "+gameName);
+		            System.out.println("so you both draw");
+		            System.out.println("");		
+		            //Random number to pick between Rock and Scissors
+		            int randomNum2 = 1 + (int)(Math.random() * ((3 - 1) + 1));
+		            	//Call Paper 33% of the time
+			    		if (randomNum2 == 1){
+			    			int pastDecision = 2; //Calling  Paper
+			    			startGame(pastDecision);	}
+			    		//Call  Scissors 33% of the time
+			    		else if (randomNum2 == 3){
+			    			int pastDecision = 1; //Calling Scissors
+			    			startGame(pastDecision);	}
+			    		//Call Lizard 33% of the time
+			    		else {
+			    			int pastDecision = 4; //Calling  Lizard
+			    			startGame(pastDecision);
+			    		}		       
+		            }
+				
+					//If the user looses
+		            else if(user == 2 &&  game == 3 || user == 4 && game == 3){
+		            	 System.out.println("You picked "+ userName+ " and the computer picked "+gameName);
+				         System.out.println("so you loose");
+				         System.out.println("");				           
+				         int randomNum2 = 1 + (int)(Math.random() * ((2 - 1) + 1));
+				            //Call Rock 50% of the time
+					    	if (randomNum2 == 1){
+					    		int pastDecision = 1; //Calling  Rock
+					    		startGame(pastDecision);	}
+					    	//Call Spock 50% of the time
+					    	else {
+					    		int pastDecision = 5; //Calling Spock
+					    		startGame(pastDecision);
+					    	}
+					}
+					//If the user wins
+		            else {
+		            	System.out.println("You picked "+ userName+ " and the computer picked "+gameName);
+				         System.out.println("so you win");
+				         System.out.println("");				           
+				         int randomNum2 = 1 + (int)(Math.random() * ((2 - 1) + 1));
+				            //Call Rock 50% of the time
+					    	if (randomNum2 == 1){
+					    		int pastDecision = 1; //Calling  Rock
+					    		startGame(pastDecision);	}
+					    	//Call Spock 50% of the time
+					    	else {
+					    		int pastDecision = 5; //Calling  Spock
+					    		startGame(pastDecision);
+					    	}
+					}
+		            }
+
+//Step Four
+			public static void stepFour(int user, String userName) {
+				int game = 4; //Game is set to rock
+				String gameName = "Lizard"; 
+				
+				//If the user and game draw
+				if(user==game){
+		            System.out.println("You picked "+ userName+ " and the computer picked "+gameName);
+		            System.out.println("so you both draw");
+		            System.out.println("");		
+		            //Random number to pick between Rock and Scissors
+		            int randomNum2 = 1 + (int)(Math.random() * ((3 - 1) + 1));
+		            	//Call Paper 33% of the time
+			    		if (randomNum2 == 1){
+			    			int pastDecision = 2; //Calling  Paper
+			    			startGame(pastDecision);	}
+			    		//Call Lizard 33% of the time
+			    		else if (randomNum2 == 2){
+			    			int pastDecision = 4; //Calling  Lizard
+			    			startGame(pastDecision);	}
+			    		//Call Spock 33% of the time
+			    		else {
+			    			int pastDecision = 5; //Calling  Spock
+			    			startGame(pastDecision);
+			    		}		       
+		            }
+				
+					//If the user looses
+		            else if(user == 2 &&  game == 4 || user == 5 && game == 4){
+		            	 System.out.println("You picked "+ userName+ " and the computer picked "+gameName);
+				         System.out.println("so you loose");
+				         System.out.println("");				           
+				         int randomNum2 = 1 + (int)(Math.random() * ((2 - 1) + 1));
+				            //Call Scissors 50% of the time
+					    	if (randomNum2 == 1){
+					    		int pastDecision = 3; //Calling  Scissors
+					    		startGame(pastDecision);	}
+					    	//Call Rock 50% of the time
+					    	else {
+					    		int pastDecision = 1; //Calling  Rock
+					    		startGame(pastDecision);
+					    	}
+					}
+					//If the user wins
+		            else {
+		            	System.out.println("You picked "+ userName+ " and the computer picked "+gameName);
+				         System.out.println("so you win");
+				         System.out.println("");				           
+				         int randomNum2 = 1 + (int)(Math.random() * ((2 - 1) + 1));
+				            //Call Paper 50% of the time
+					    	if (randomNum2 == 1){
+					    		int pastDecision = 2; //Calling  Paper
+					    		startGame(pastDecision);	}
+					    	//Call Spock 50% of the time
+					    	else {
+					    		int pastDecision = 5; //Calling  Spock
+					    		startGame(pastDecision);
+					    	}
+					}
+		            }
+			
+//Step Five
+			public static void stepFive(int user, String userName) {
+				int game = 5; //Game is set to rock
+				String gameName = "Spock"; 
+				
+				//If the user and game draw
+				if(user==game){
+		            System.out.println("You picked "+ userName+ " and the computer picked "+gameName);
+		            System.out.println("so you both draw");
+		            System.out.println("");		
+		            //Random number to pick between Rock and Scissors
+		            int randomNum2 = 1 + (int)(Math.random() * ((3 - 1) + 1));
+		            	//Call Rock 33% of the time
+			    		if (randomNum2 == 1){
+			    			int pastDecision = 1; //Calling  Rock
+			    			startGame(pastDecision);	}
+			    		//Call Scissors 33% of the time
+			    		else if (randomNum2 == 2){
+			    			int pastDecision = 3; //Calling  Scissors
+			    			startGame(pastDecision);	}
+			    		//Call Spock 33% of the time
+			    		else {
+			    			int pastDecision = 5; //Calling  Spock
+			    			startGame(pastDecision);
+			    		}		       
+		            }
+				
+					//If the user looses
+		            else if(user == 1 &&  game == 5 || user == 3 && game == 5){
+		            	 System.out.println("You picked "+ userName+ " and the computer picked "+gameName);
+				         System.out.println("so you loose");
+				         System.out.println("");				           
+				         int randomNum2 = 1 + (int)(Math.random() * ((2 - 1) + 1));
+				            //Call Paper 50% of the time
+					    	if (randomNum2 == 1){
+					    		int pastDecision = 2; //Calling  Paper
+					    		startGame(pastDecision);	}
+					    	//Call Lizard 50% of the time
+					    	else {
+					    		int pastDecision = 4; //Calling  Lizard
+					    		startGame(pastDecision);
+					    	}
+					}
+					//If the user wins
+		            else {
+		            	System.out.println("You picked "+ userName+ " and the computer picked "+gameName);
+				         System.out.println("so you win");
+				         System.out.println("");				           
+				         int randomNum2 = 1 + (int)(Math.random() * ((2 - 1) + 1));
+				            //Call Rock 50% of the time
+					    	if (randomNum2 == 1){
+					    		int pastDecision = 1; //Calling Rock
+					    		startGame(pastDecision);	}
+					    	//Call Scissors 50% of the time
+					    	else {
+					    		int pastDecision = 3; //Calling  Scissors
+					    		startGame(pastDecision);
+					    	}
+					}
+		            }
+			}
