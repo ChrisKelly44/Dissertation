@@ -1,0 +1,156 @@
+import java.util.Random;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+		public class RPSstep {
+
+			public static void main(String args[]){
+				startGame(0);
+			}
+			
+				public static void startGame(int pastDecision) {
+			    Scanner userChoice = new Scanner(System.in);    
+		    	System.out.println("");
+		        System.out.println("Please enter your selection and enter the digit"
+		        		+ "\nfor your selection:"
+		        		+ "\nRock(1),Paper(2), Scissor(3) ");
+		        
+		        
+		        
+			    int user = userChoice.nextInt();
+		        
+			  
+			    
+			    
+			    if (pastDecision == 0){
+			    	int randomNum1 = 1 + (int)(Math.random() * ((3 - 1) + 1));
+			    	if (randomNum1 == 1){
+			    		stepOne(user);	}	
+			    	else if(randomNum1 == 2){
+			    		stepTwo(user);
+			    	}
+			    	else {
+			    		stepThree(user);
+			    	}
+			    }
+			    
+			    
+			    else if(pastDecision == 1){
+			    stepOne(user);
+			    }
+			    else if(pastDecision == 2){
+			    stepTwo(user);
+			    }
+			    else if(pastDecision == 3){  
+			    stepThree(user);
+			    }
+			   
+			    
+	     
+			     
+	}
+
+
+			//If no game has previously been played this method is called	
+			public static void stepOne(int user) {
+				int game = 1; //game is set to rock
+			
+				if(user==game){
+		            System.out.println("You picked Rock and the computer picked Rock");
+		            System.out.println("so you both draw");
+		            System.out.println("");		
+		            //Random number to pick between Rock and Scissors
+		            int randomNum2 = 1 + (int)(Math.random() * ((3 - 1) + 1));
+		            //Call Rock 33% of the time
+			    	if (randomNum2 < 2){
+			    		int pastDecision = 1; //Calling  Rock
+			    		startGame(pastDecision);	}
+			    	//Call Scissors 66% of the time
+			    	else {
+			    		int pastDecision = 3; //Calling  Scissors
+			    		startGame(pastDecision);
+			    	}
+		       
+		             }
+		            else if(user < game){
+		            	 System.out.println("You picked Scissors and the computer picked Rock");
+				            System.out.println("so you lost");
+				            System.out.println("");				           
+				            int pastDecision = 2; //Calling  Paper
+				            startGame(pastDecision);}
+		            else {
+		            	System.out.println("You picked Paper and the computer picked Rock");
+			            System.out.println("so you won");
+			            System.out.println("");
+			            int pastDecision = 1; //Calling Rock
+			            startGame(pastDecision);}
+		            }
+		 				
+	
+			
+			//If the last user decision was rock and they won
+			public static void stepTwo(int user) {
+				int game = 2; //game is set to paper
+				
+				if(user==game){
+		            System.out.println("You picked Paper and the computer picked Paper");
+		            System.out.println("so you both draw");
+		            System.out.println("");
+		            int randomNum2 = 1 + (int)(Math.random() * ((3 - 1) + 1));
+			    	if (randomNum2 < 2){
+			    		int pastDecision = 2; //Calling  Paper 33% of the time
+			    		startGame(pastDecision);	}	
+			    	else {
+			    		int pastDecision = 1; //Calling  Rock 66% of the time
+			    		startGame(pastDecision);
+			    	}
+				}
+		            else if(user < game){
+		            	 System.out.println("You picked Rock and the computer picked Paper");
+				            System.out.println("so you lost");
+				            System.out.println("");
+				            int pastDecision = 3; //Calling scissors  
+				            startGame(pastDecision);}
+		            else {
+		            	System.out.println("You picked Scissors and the computer picked Paper");
+			            System.out.println("so you won");
+			            System.out.println("");
+			            int pastDecision = 2; //Calling Paper
+			            startGame(pastDecision);}
+	}
+			
+			//If the last user decision was rock and they lost
+			public static void stepThree(int user) {
+				int game = 3; //game is set to Scissors
+				
+				if(user==game){
+		            System.out.println("You picked Scissors and the computer picked Scissors");
+		            System.out.println("so you both draw");
+		            System.out.println("");
+		            int randomNum2 = 1 + (int)(Math.random() * ((3 - 1) + 1));
+			    	if (randomNum2 < 2){
+			    		int pastDecision = 3; //Calling  Scissors 33% of the time
+			    		startGame(pastDecision);	}	
+			    	else {
+			    		int pastDecision = 2; //Calling  Paper 66% of the time
+			    		startGame(pastDecision);
+			    	} }
+		            else if(user > game){
+		            	 System.out.println("You picked Paper and the computer picked Scissors");
+				            System.out.println("so you lost");
+				            System.out.println("");
+				            int pastDecision = 1; //Calling Rock  
+				            startGame(pastDecision);}
+		            else {
+		            	System.out.println("You picked Rock and the computer picked Scissors");
+			            System.out.println("so you won");
+			            System.out.println("");
+			            int pastDecision = 3; //Calling Scissors
+			            startGame(pastDecision);}
+				}
+	
+			}
+
+	
+
